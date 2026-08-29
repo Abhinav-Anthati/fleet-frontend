@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react'
 import api, { setAuth } from './api'
 import Login from './Login'
 import AdminDashboard from './dashboards/AdminDashboard'
+import ManagerDashboard from './dashboards/ManagerDashboard'
+import DriverDashboard from './dashboards/DriverDashboard'
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
@@ -22,7 +24,16 @@ function App() {
     return <Login onLoginSuccess={handleLoginSuccess} />;
   }
 
-  return <AdminDashboard currentUser={currentUser} onLogout={handleLogout} />;
+  if (currentUser.role === 'ADMIN') {
+    return <AdminDashboard currentUser={currentUser} onLogout={handleLogout} />;
+  }
+  if (currentUser.role === "MANAGER") {
+    return <ManagerDashboard currentUser={currentUser} onLogout={handleLogout} />;
+  }
+  if (currentUser.role === "DRIVER") {
+    return <DriverDashboard currentUser={currentUser} onLogout={handleLogout} />;
+  }
+  return <p>Unknown role, contact an administrator.</p>;
 }
 
 export default App;

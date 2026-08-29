@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import api from '../api'
+import { useState } from 'react';
+import api from '../api';
 
 function CreateVehicleForm({ onCreated }) {
     const [make, setMake] = useState('');
@@ -32,14 +32,19 @@ function CreateVehicleForm({ onCreated }) {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-        <input placeholder="Make" value={make} onChange={(e) => setMake(e.target.value)} />
-        <input placeholder="Model" value={model} onChange={(e) => setModel(e.target.value)} />
-        <input placeholder="Year" value={year} onChange={(e) => setYear(e.target.value)} />
-        <input placeholder="License Plate" value={licensePlate} onChange={(e) => setLicensePlate(e.target.value)} />
-        <button type="submit">Add Vehicle</button>
-        {error && <p style={{ color: "red" }}>{error}</p>}
-        </form>
+        <div>
+            <h3>
+                Create a Vehicle
+            </h3>
+            <form onSubmit={handleSubmit}>
+                <input placeholder="Make" value={make} onChange={(e) => setMake(e.target.value)} />
+                <input placeholder="Model" value={model} onChange={(e) => setModel(e.target.value)} />
+                <input placeholder="Year" value={year} onChange={(e) => setYear(e.target.value)} />
+                <input placeholder="License Plate" value={licensePlate} onChange={(e) => setLicensePlate(e.target.value)} />
+                <button type="submit">Add Vehicle</button>
+                {error && <p style={{ color: "red" }}>{error}</p>}
+            </form>
+        </div>
     );
 }
 

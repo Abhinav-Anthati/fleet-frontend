@@ -1,7 +1,7 @@
-import VehicleList from '../components/VehicleList';
-import ReservationList from "../components/ReservationList";
+import VehicleManagement from '../components/VehicleManagement';
+import ReservationManagement from "../components/ReservationManagement";
 import UserManagement from "../components/UserManagement";
-import MaintenanceWindowList from "../components/MaintenanceWindowList";
+import MaintenanceWindowManagement from "../components/MaintenanceWindowManagement";
 
 function AdminDashboard({ currentUser, onLogout }) {
     return (
@@ -9,10 +9,10 @@ function AdminDashboard({ currentUser, onLogout }) {
             <h1>Admin Dashboard</h1>
             <p>Logged in as {currentUser.name}</p>
             <button onClick={onLogout}>Logout</button>
-            <VehicleList />
-            <ReservationList />
+            <VehicleManagement />
+            <ReservationManagement />
             <UserManagement />
-            <MaintenanceWindowList />
+            <MaintenanceWindowManagement />
         </div>
     );
 }
