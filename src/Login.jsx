@@ -1,5 +1,5 @@
 import { useState } from "react";
-import axios from "axios";
+import api from "./api";
 
 function Login({ onLoginSuccess }) {
   const [email, setEmail] = useState("");
@@ -11,7 +11,7 @@ function Login({ onLoginSuccess }) {
     setError("");
 
     try {
-      const response = await axios.get("http://localhost:8080/api/vehicles", {
+      await api.get("/vehicles", {
         auth: { username: email, password: password },
       });
       onLoginSuccess(email, password);
