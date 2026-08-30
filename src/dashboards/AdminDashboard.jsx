@@ -5,7 +5,7 @@ import MaintenanceWindowManagement from "../components/MaintenanceWindowManageme
 
 function AdminDashboard({ currentUser, onLogout }) {
     return (
-        <div>
+        <div className="dashboard" style={{ borderTop: "4px solid #2563eb" }}>
             <h1>Admin Dashboard</h1>
             <p>Logged in as {currentUser.name}</p>
             <button onClick={onLogout}>Logout</button>

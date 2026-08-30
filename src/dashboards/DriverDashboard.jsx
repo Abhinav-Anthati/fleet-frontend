@@ -25,7 +25,7 @@ function DriverDashboard({ currentUser, onLogout }) {
     }
 
     return (
-        <div>
+        <div className="dashboard" style={{ borderTop: "4px solid #d97706" }}>
             <h1>Driver Dashboard</h1>
             <p>Logged in as {currentUser.name}</p>
             <button onClick={onLogout}>Logout</button>
